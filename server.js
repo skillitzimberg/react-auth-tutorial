@@ -2,9 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 
-app.use("/login", (req, res) => {
+app.post("/login", (req, res) => {
   console.log("REQUEST", req.body);
   res.type("application/json");
   res.send({
