@@ -8,7 +8,7 @@ async function loginUser(credentials) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials),
-  }).then((data) => data.json());
+  }).then((data) => data.text());
 }
 
 export default function Login({ setToken }) {
@@ -17,9 +17,8 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("token");
     const token = await loginUser({ username, password });
-    // console.log(token);
+    setToken(token);
   };
 
   return (
